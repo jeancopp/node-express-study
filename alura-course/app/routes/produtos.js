@@ -6,7 +6,10 @@ module.exports = function (app) {
         conexao.query("select * from livros", function(err,ret){
             res.render("produtos/lista",{lista : ret});
         });
-
         conexao.end();
     });
+    app.get('/produtos/form', function (req, res) {
+        res.render("produtos/form");
+    });
+    
 }
