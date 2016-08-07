@@ -9,4 +9,4 @@ var server = http.createServer(function (request, response) {
 
 
 
-server.listen(3000, () => console.log("Tá saindo da jaula o monstro") );
+server.listen(3000, () => console.log("Inicializando servidor") );

@@ -1,0 +1,23 @@
+{
+  "name": "alura-course",
+  "version": "1.0.0",
+  "description": "The codes of Node.js course from Alura EAD plattaform",
+  "main": "app.js",
+  "scripts": {
+    "start" : "cls && nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jean Coppieters Souza <jean@coppieters.com.br>",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.5.1",
+    "express": "^4.14.0"
+  },
+  "server":{
+    "configuration": "./config/express",
+    "routingFile": "./app/routes/routes",
+    "port" : 3000,        
+    "startFunction" : "./config/server-started"
+    
+  }
+}
