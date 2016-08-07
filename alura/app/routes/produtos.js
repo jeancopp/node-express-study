@@ -1,5 +1,12 @@
 module.exports = function (app) {
+    
     app.get('/produtos', function (req, res) {
-        res.render("produtos/lista")
+        Conexao = app.factory.conexao;
+        var conexao = new Conexao(global.database).getConnection();
+        conexao.query("select * from livros", function(err,ret){
+            res.render("produtos/lista",{lista : ret});
+        });
+
+        conexao.end();
     });
 }

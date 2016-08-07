@@ -4,20 +4,28 @@
   "description": "The codes of Node.js course from Alura EAD plattaform",
   "main": "app.js",
   "scripts": {
-    "start" : "cls && nodemon app.js",
+    "start": "cls && nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jean Coppieters Souza <jean@coppieters.com.br>",
   "license": "ISC",
   "dependencies": {
     "ejs": "^2.5.1",
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "express-load": "^1.1.15",
+    "mysql": "^2.11.1"
   },
-  "server":{
+  "server": {
     "configuration": "./config/express",
     "routingFile": "./app/routes/routes",
-    "port" : 3000,        
-    "startFunction" : "./config/server-started"
-    
+    "port": 3000,
+    "startFunction": "./config/server-started"
+  },
+  "database": {
+    "host": "localhost",
+    "user": "root",
+    "password": "",
+    "database": "livraria",
+    "connectionLimit": 9999
   }
 }

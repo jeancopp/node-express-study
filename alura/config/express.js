@@ -1,22 +1,28 @@
 "use strict"
 
 
-class ConfiguraExpress{
-    
-    constructor(){
+class ConfiguraExpress {
+
+    constructor() {
         this.app = require("express")();
-        this.app.set("view engine","ejs");
-        this.app.set("views","./app/views");
+        this.app.set("view engine", "ejs");
+        this.app.set("views", "./app/views");
+
+        var load = require("express-load");
+        load("routes", { cwd: "app" })
+            .then("factory")
+            .into(this.app);
+
     }
-    
-    run(port,startFunction){
-        return this.app.listen(port,startFunction);    
+
+    run(port, startFunction) {
+        return this.app.listen(port, startFunction);
     }
-    
-    getServer(){
+
+    getServer() {
         return this.app;
     }
-    
+
 }
 
 

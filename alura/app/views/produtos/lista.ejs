@@ -1,18 +1,27 @@
 <html>
-    <body>
-        <table border="1px">
-            <thead>
+
+<body>
+    <table border="1px">
+        <thead>
+            <tr>
+                <td>Código</td>
+                <td>Nome</td>
+                <td>Descrição</td>
+                <td>Preço</td>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(var i=0; i<lista.length; i++) {%>
                 <tr>
-                    <td>ID</td>
-                    <td>Nome</td>
+                    <td> <%= lista[i].id %> </td>
+                    <td> <%= lista[i].titulo %> </td>
+                    <td> <%= lista[i].descricao %> </td>
+                    <td> <%= lista[i].preco %> </td>
                 </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Node JS daora</td>
-                </tr>
-            </tbody>
-        </table>
-    </body>
+             <% } %>
+        </tbody>
+    </table>
+</body>
+
 </html>
+
