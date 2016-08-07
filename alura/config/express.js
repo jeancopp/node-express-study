@@ -6,6 +6,7 @@ class ConfiguraExpress{
     constructor(){
         this.app = require("express")();
         this.app.set("view engine","ejs");
+        this.app.set("views","./app/views");
     }
     
     run(port,startFunction){
