@@ -6,7 +6,12 @@ class Livro{
             throw "Titulo não pode estar em branco";
         if(!descricao || descricao ==="")
             throw "Descrição não pode estar em branco";
-        if(!preco )
-
+        if(!preco || typeof preco !== "number" || preco < 0.00 )
+            throw "Preço inválido";
+        
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.preco = preco;
+        
     }
 }

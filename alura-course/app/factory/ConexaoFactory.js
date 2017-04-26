@@ -1,17 +1,17 @@
 "use strict";
 
 
-class Conexao{
+class ConexaoFactory{
 
     constructor(configuration){
         var mysql = require("mysql");
         this.conexao = mysql.createConnection(configuration);
     }
 
-    getConnection(){
+    criar(){
         return this.conexao;
     }
     
 }
 
-module.exports = () => { return Conexao; } ;
+module.exports = () =>  ConexaoFactory ;

@@ -1,6 +1,7 @@
 <html>
 
 <body>
+    <% if (lista) { %>
     <table border="1px">
         <thead>
             <tr>
@@ -18,9 +19,12 @@
                     <td> <%= lista[i].descricao %> </td>
                     <td> <%= lista[i].preco %> </td>
                 </tr>
-             <% } %>
+            <% } %>
         </tbody>
     </table>
+    <% } else {%>
+        <h3>Sem retorno do servidor</h3>
+    <% } %>
 </body>
 
 </html>

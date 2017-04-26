@@ -8,9 +8,22 @@ class ConfiguraExpress {
         this.app.set("view engine", "ejs");
         this.app.set("views", "./app/views");
 
+        var bodyParser = require('body-parser');
+        var validator = require("express-validator");
+
+        this.app.use(bodyParser.urlencoded({
+            extended: true
+        }));
+
+        this.app.use(bodyParser.json());
+        this.app.use(validator());
+
+
         var load = require("express-load");
         load("routes", { cwd: "app" })
             .then("factory")
+            .then("model")
+            .then("dao")
             .into(this.app);
 
     }
