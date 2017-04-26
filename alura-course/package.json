@@ -23,6 +23,12 @@
     "port": 3000,
     "startFunction": "./config/server-started"
   },
+  "serverDev": {
+    "configuration": "./config/express",
+    "routingFile": "./app/routes/routes",
+    "port": 3000,
+    "startFunction": "./config/server-started"
+  },
   "database": {
     "host": "localhost",
     "user": "root",
@@ -31,6 +37,7 @@
     "connectionLimit": 9999
   },
   "devDependencies": {
-    "mocha": "^3.2.0"
+    "mocha": "^3.2.0",
+    "supertest": "^3.0.0"
   }
 }
