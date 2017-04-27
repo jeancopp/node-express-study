@@ -20,8 +20,6 @@ module.exports = function (app) {
     });
     
     app.post("/produtos",function(req,res){
-        console.log(req.body);
-        
         req.assert('titulo','Titúlo é obrigatório').notEmpty();
         req.assert('preco','Formato inválido').isFloat();
 
