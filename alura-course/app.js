@@ -14,6 +14,7 @@ var app = require(serverOptions.configuration);
 
 console.log("Configurando as rotas: " + serverOptions.routingFile);
 var server = app.getServer();
+//Criando as rotas
 require(serverOptions.routingFile)(server);
 
 console.log("Inicializando o servidor - Porta : " + serverOptions.port);

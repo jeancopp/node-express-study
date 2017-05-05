@@ -11,7 +11,7 @@ class ConfiguraExpress {
         this.app.set("view engine", "ejs");
         this.app.set("views", "./app/views");
 
-        
+
         this.app.use(express.static('./app/public'));
         this.app.use(bodyParser.urlencoded({
             extended: true
@@ -28,10 +28,26 @@ class ConfiguraExpress {
             .then("dao")
             .into(this.app);
 
+        this.app.use(function (req, res, next) {
+            res.status(404).render("erros/404");
+        });
+
+        this.app.use(function (error, req, res, next) {
+            if (process.env.NODE_ENV == 'production') {
+                res.status(500).render('errors/500');
+                return;
+            }
+            next(errors);
+        });
+
     }
 
     run(port, startFunction) {
-        return this.app.listen(port, startFunction);
+        var http = require('http').Server(this.app);
+        var io = require('socket.io')(http);
+
+        this.app.set('io', io);
+        return http.listen(port, startFunction);
     }
 
     getServer() {
