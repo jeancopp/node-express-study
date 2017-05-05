@@ -3,6 +3,15 @@ var server = require('./test-server');
 var request = require('supertest')(server);
 
 describe('#ProdutosController', function(){
+    beforeEach(function(done) {
+            var connection = server.infra.connectionFactory();            
+            connection.query("delete from livros", function(ex,result){
+                if(!ex){
+                    done();
+                }
+            });
+    });
+
     it('#listagem json',function(done){
         request.get("/produtos")
             .set('Accept','application/json')

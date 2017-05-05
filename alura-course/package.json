@@ -36,6 +36,13 @@
     "database": "livraria",
     "connectionLimit": 9999
   },
+  "databaseDev": {
+    "host": "localhost",
+    "user": "root",
+    "password": "",
+    "database": "livraria_test",
+    "connectionLimit": 9999
+  },
   "devDependencies": {
     "mocha": "^3.2.0",
     "supertest": "^3.0.0"

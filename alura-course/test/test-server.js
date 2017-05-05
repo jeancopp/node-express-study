@@ -1,7 +1,9 @@
 
 var package = require("../package.json");
 var serverOptions = package.serverDev;
-global.database = package.database;
+
+global.database = package.databaseDev;
+
 var app = require("../" + serverOptions.configuration);
 var server = app.getServer();
 require("../" + serverOptions.routingFile)(server);

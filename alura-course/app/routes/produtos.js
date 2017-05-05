@@ -1,15 +1,18 @@
 module.exports = function (app) {
     
-    app.get('/produtos', function (req, res) {
+    app.get('/produtos', function (req, res, next) {
         var conexao = new app.factory.ConexaoFactory(global.database).criar();
         var livroDao = new app.dao.LivroDAO(conexao);
         
         conexao.connect();
         livroDao.listar(function(err,ret) {
-            res.format({
-                html : () => res.render("produtos/lista", {lista : ret}),
-                json : () => res.json(ret) 
-            });
+            if(err) {
+                next(err);
+            }else 
+                res.format({
+                    html : () => res.render("produtos/lista", {lista : ret}),
+                    json : () => res.json(ret) 
+                });
             
         });
         conexao.end();

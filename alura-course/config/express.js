@@ -1,16 +1,18 @@
 "use strict"
 
+var express = require("express");
+var bodyParser = require('body-parser');
+var validator = require("express-validator");
 
 class ConfiguraExpress {
 
     constructor() {
-        this.app = require("express")();
+        this.app = express();
         this.app.set("view engine", "ejs");
         this.app.set("views", "./app/views");
 
-        var bodyParser = require('body-parser');
-        var validator = require("express-validator");
-
+        
+        this.app.use(express.static('./app/public'));
         this.app.use(bodyParser.urlencoded({
             extended: true
         }));

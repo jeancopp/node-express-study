@@ -4,6 +4,20 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "nodemon",
+            "runtimeExecutable": "nodemon",
+            "runtimeArgs": [
+                "--debug=5858"
+            ],
+            "program": "${workspaceRoot}/app.js",
+            "restart": true,
+            "port": 5858,
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "Mocha Tests",
             "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
             "args": [
